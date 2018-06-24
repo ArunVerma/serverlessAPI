@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: mePay charge card api
+Resources:
+  ChargePayment:
+    Properties:
+      CodeUri: s3://sam-test-06132018/22b659450f945d4a1b650f137e9f1627
+      Events:
+        ChargeCard:
+          Properties:
+            Method: post
+            Path: /chargecard
+          Type: Api
+      Handler: index.handler
+      Runtime: nodejs6.10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
